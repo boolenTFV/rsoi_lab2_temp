@@ -1,0 +1,13 @@
+type Mutation {
+  deleteBus(id:String!):String,
+  addBus(input:BusInput):Bus,
+  setBus(id:String!, input:BusInput):Bus,
+  
+  deleteDriver(id:String!):String,
+  addDriver(input:DriverInput):Driver,
+  setDriver(id:String!, input:DriverInput):Driver
+
+  deleteSchedule(id:String!):String,
+  addSchedule(input:ScheduleInput):Schedule,
+  setSchedule(id:String!, input:ScheduleInput):Schedule
+}

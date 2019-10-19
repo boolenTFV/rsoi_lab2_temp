@@ -1,0 +1,8 @@
+type Query {
+  buses(model:String, startDate:String, licensePlate:String, pagination:PageInput):BusPaginate,
+  bus(id:ID!):Bus,
+  driver(id:ID!):Driver,
+  drivers(name:String, lastName:String, birthDate:String, pagination:PageInput):DriverPaginate,
+  schedule(route:String, driverId: String, busId: String, day: String, time: String, pagination:PageInput):SchedulePaginate
+  scheduleOne(id:ID!):Schedule
+}

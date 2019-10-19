@@ -1,0 +1,18 @@
+input BusInput{
+  model: String!,
+  startDate: String!,
+  licensePlate: String!
+}
+type Bus{
+  id: String,
+  model: String,
+  startDate: String,
+  licensePlate: String
+}
+type BusPaginate{
+  currentPage: Int
+  perPage: Int
+  total: Int,
+  totalPages: Int,
+  data: [Bus]
+}

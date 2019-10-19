@@ -1,0 +1,24 @@
+input ScheduleInput{
+  route: String,
+  driverId: String,
+  busId: String,
+  day: String,
+  time:String
+}
+type Schedule{
+  id: String,
+  route: String,
+  driverId: String,
+  busId: String,
+  day: String,
+  time: String,
+  driver:Driver,
+  bus:Bus
+}
+type SchedulePaginate{
+  currentPage: Int
+  perPage: Int
+  total: Int,
+  totalPages: Int,
+  data: [Schedule]
+}

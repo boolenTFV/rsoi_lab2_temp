@@ -1,0 +1,8 @@
+type ExtendedSchedule{
+  id: String,
+  route: String,
+  driver: Driver,
+  bus: String,
+  day: String,
+  time: String
+}

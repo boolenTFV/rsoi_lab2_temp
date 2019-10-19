@@ -1,0 +1,4 @@
+input PageInput{
+  size: Int,
+  page:Int
+}

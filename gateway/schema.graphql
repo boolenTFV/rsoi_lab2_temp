@@ -1,0 +1,33 @@
+input BusInput{
+  model: String,
+  startDate: String,
+  licensePlate: String
+}
+type Bus{
+  id: String,
+  model: String,
+  startDate: String,
+  licensePlate: String
+}
+
+type Driver{
+  id: String,
+  name: String,
+  lastName: String,
+  birthDate: String
+}
+input Driver{
+  name: String,
+  lastName: String,
+  birthDate: String
+}
+
+type Mutation {
+  deleteBus(id:String!):String,
+  addBus(input:BusInput):Bus,
+  setBus(id:String!, input:BusInput):Bus
+}
+type Query {
+  buses(model:String, startDate:String, licensePlate:String ):[Bus],
+  bus(id:ID!):Bus
+}
