@@ -6,6 +6,7 @@ var Schedule = require('../models/schedule');
 router.get('/', function(req, res) {
   Schedule.find(req.query,function(err, result){
     result= result||[];
+    console.log("Расписание ",result);
     res.json(result);
   });
 });
@@ -20,7 +21,7 @@ router.post('/', function(req, res) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log("\t-расписание добавлено");
+        console.log("\t-расписание добавлено", schedule);
         res.json(schedule);
       }
     }
@@ -35,7 +36,7 @@ router.delete('/:id', function(req, res, next) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log('\t-расписание удалено');
+        console.log('\t-расписание удалено', req.params.id );
         res.json({id: req.params.id});
       }
     }
@@ -44,14 +45,14 @@ router.delete('/:id', function(req, res, next) {
 
 router.patch('/:id', function(req, res, next) {
   id = req.params.id;
-  console.log('Изменяем расписание id = ' + id);
+  console.log('Изменяем расписание id = ', id);
   Schedule.findByIdAndUpdate(id, req.body, {upsert: true, new:true}, (err,doc)=>{
     if(err){
       console.log('\t- '+err.message);
       res.statusCode = 403;
       res.send();
     }else{
-      console.log('\t- расписание изменено'+id);
+      console.log('\t- расписание изменено', id);
       res.json(doc);
     }
   });

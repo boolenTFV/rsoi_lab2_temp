@@ -10,6 +10,7 @@ router.get('/', function(req, res) {
   }
   Bus.find(req.query,function(err, result){
     result = result||[];
+    console.log("Список автобусов ",result);
     res.json(result);
   });
 });
@@ -24,11 +25,10 @@ router.post('/', function(req, res) {
     (err)=>{
       if(err){
         console.log("\t- не удалось добавить автобус", err.message);
-        console.log(req.body);
         res.statusCode = 403;
         res.send();
       }else{
-        console.log("\t- автобус был добавлен");
+        console.log("\t- автобус был добавлен", bus);
         res.json(bus);
       }
     }
@@ -44,7 +44,7 @@ router.delete('/:id', function(req, res, next) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log('\t- автобус удален');
+        console.log('\t- автобус удален', bus);
         res.json({id: req.params.id});
       }
     }

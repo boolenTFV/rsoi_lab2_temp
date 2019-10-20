@@ -6,6 +6,7 @@ var Driver = require('../models/driver');
 router.get('/', function(req, res) {
   Driver.find(req.query,function(err, result){
     result= result||[];
+    console.log("Список водителей", result);
     res.json(result);
   });
 });
@@ -21,7 +22,7 @@ router.post('/', function(req, res) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log("\t-водитель добавлен");
+        console.log("\t-водитель добавлен",driver);
         res.json(driver);
       }
     }
@@ -36,7 +37,7 @@ router.delete('/:id', function(req, res) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log('\t-водитель удален');
+        console.log('\t-водитель удален', req.params.id);
         res.json({id: req.params.id});
       }
     }
@@ -52,7 +53,7 @@ router.patch('/:id', function(req, res) {
       res.statusCode = 403;
       res.send();
     }else{
-      console.log('\t- водитель изменен изменен'+doc.id);
+      console.log('\t- водитель изменен изменен', doc.id);
       res.json(doc);
     }
   });
