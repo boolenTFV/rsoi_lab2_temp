@@ -1,9 +1,10 @@
 jobs:
-include:
-  - stage: test bus
-    script: cd $TRAVIS_BUILD_DIR/bus
-    language: node_js
-    node_js:
-      - 10
-    install:
-      - npm installg
+  include:
+    - stage: test bus
+
+      language: node_js
+      node_js:
+        - "stable"
+      install:
+        - npm installg
+      script: cd $TRAVIS_BUILD_DIR/bus
