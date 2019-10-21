@@ -1,10 +1,26 @@
 jobs:
   include:
     - stage: test bus
-
       language: node_js
       node_js:
         - "stable"
+      before_install: cd $TRAVIS_BUILD_DIR/bus
       install:
-        - npm installg
-      script: cd $TRAVIS_BUILD_DIR/bus
+        - npm install
+    - stage: test driver
+      language: node_js
+      node_js:
+        - "stable"
+      before_install: cd $TRAVIS_BUILD_DIR/driver
+      install:
+        - npm install
+    - stage: test schedule
+      language: node_js
+      node_js:
+        - "stable"
+      before_install: cd $TRAVIS_BUILD_DIR/driver
+      install:
+        - npm install
+
+      
+      
