@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
   console.log("Добавляем автобус");
   if(req.body.startDate!=null){
-    req.body.startDate= new Date(req.body.startDate);
+    req.body.startDate= new Date(req.body.startDate).toISOString();
   }
   var bus = new Bus(req.body);
   bus.save(
@@ -44,7 +44,7 @@ router.delete('/:id', function(req, res, next) {
         res.statusCode = 403;
         res.send();
       }else{
-        console.log('\t- автобус удален', bus);
+        console.log('\t- автобус удален', req.params.id);
         res.json({id: req.params.id});
       }
     }
