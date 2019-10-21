@@ -21,6 +21,13 @@ jobs:
       before_install: cd $TRAVIS_BUILD_DIR/driver
       install:
         - npm install
+    - stage: test gateway
+      language: node_js
+      node_js:
+        - "stable"
+      before_install: cd $TRAVIS_BUILD_DIR/gateway
+      install:
+        - npm install
 
       
       
