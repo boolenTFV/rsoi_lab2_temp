@@ -1,6 +1,9 @@
-language: node_js
-node_js:
-  - 10
-
-install:
-  - npm install
+jobs:
+include:
+  - stage: test bus
+    script: cd $TRAVIS_BUILD_DIR/bus
+    language: node_js
+    node_js:
+      - 10
+    install:
+      - npm installg
