@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.9.5",
+    "apollo-server": "^2.14.2",
     "bluebird": "^3.7.0",
     "chai": "^4.2.0",
     "dotenv": "^8.1.0",
